@@ -69,6 +69,13 @@ def display_product(result):
             価格：{product['price']}
     """)
 
+    # 在庫状況
+    if product['stock_status'] == ct.STOCK_FEW:
+        st.warning(ct.STOCK_FEW_TEXT, icon=ct.WARNING_ICON)
+    
+    if product['stock_status'] == ct.STOCK_OUT:
+        st.error(ct.STOCK_OUT_TEXT, icon=ct.ERROR_ICON)
+
     # 「商品カテゴリ」と「メーカー」と「ユーザー評価」
     st.code(f"""
         商品カテゴリ：{product['category']}\n
